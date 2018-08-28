@@ -40,7 +40,7 @@ If you specify the appropriate flag, the mock objects will be created and config
 
 >For example, if you specify the *DBEngine* flag, the *DBEngine*, *DBExecutor*, *DBTypeConverter*, *DBSecurityEngine*, and a number of other objects will be created, which will intercept requests at the DBEngine level.
 
-List of supported moks:
+List of supported mocks:
 ```csharp
 None = 0,
 DBEngine = 1,
@@ -54,12 +54,12 @@ All = DBEngine | HTTPContext | DCM | Features | ResourceStorage | DBSecurityEngi
 
 # Examples
 ### Set system settings
-Set system setting in test method
+Set system setting in test method.
 ```csharp
 UserConnection.SettingsValues.Add("SupportServiceEmail", "test@gmail.com"); //SysSetting code: "SupportServiceEmail", value: "test@gmail.com"
 ```
 
-Set system setting on test start
+Set system setting on test start.
 ```csharp
 protected override void SetupSysSettings() {
     base.SetupSysSettings();
@@ -90,13 +90,12 @@ public class MyTestCase : BaseConfigurationTestFixture
 }
 ```
 
-Set structure on test sturt and data in test method
+Set structure on test start and data in test method.
 ```csharp
 [TestFixture]
 [MockSettings(RequireMock.DBEngine)]
 public class MyTestCase : BaseConfigurationTestFixture
 {
-    
     protected override IEnumerable<Type> GetRequiringInitializationSchemas() {
             EntitySchemaManager.AddCustomizedEntitySchema("SysAdminOperation", new Dictionary<string, string> {
                 {"Code", "MediumText"},
@@ -104,7 +103,6 @@ public class MyTestCase : BaseConfigurationTestFixture
             });
             return new List<Type>();
     }
-    
     [Test, Category("PreCommit")]
     public void CheckSelect() {
         new SelectData(UserConnection, "SysAdminOperation")
