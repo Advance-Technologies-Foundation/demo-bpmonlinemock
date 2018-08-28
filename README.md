@@ -119,7 +119,7 @@ public class MyTestCase : BaseConfigurationTestFixture
 ```
 
 ### Create Entity instance
-Create entity instance with custom structure
+Create entity instance with custom structure.
 ```csharp
 [TestFixture]
 [MockSettings(RequireMock.DBEngine | RequireMock.ResourceStorage)]
@@ -134,7 +134,6 @@ public class MyNewTestCase : BaseConfigurationTestFixture
             });
             return new List<Type>();
     }
-    
     [Test, Category("PreCommit")]
     public void CheckCreate() {
         var activity = EntitySchemaManager.GetInstanceByName("Activity").CreateEntity(UserConnection);
