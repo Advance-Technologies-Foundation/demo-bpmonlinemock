@@ -1,6 +1,6 @@
 
 # BpmonlineMock
-The package allows you to solve the basic tasks of writing unit tests of business logic on the bpmonline platform.
+The package allows you to solve the basic tasks of writing unit tests of business logic on the bpm'online platform.
 
 The tasks that are designed to solve:
 - create and initialize UserConnection.
@@ -26,7 +26,7 @@ Inherit a test class from a class **BaseConfigurationTestFixture**
 [TestFixture]
 public class SomeTestCase : BaseConfigurationTestFixture
 ```
-Specify, using attributes, a list of required moks
+Specify, using attributes, a list of required mocks
 ```csharp
 [MockSettings(RequireMock.DBEngine)]
 [TestFixture]
@@ -35,8 +35,8 @@ public class SomeTestCase : BaseConfigurationTestFixture
 Example project using the package BpmonlineMock [demo-bpmonlinemock](https://github.com/Advance-Technologies-Foundation/demo-bpmonlinemock)
 
 # Features!
-For convenience of creation of mock objects was added **MockSettingsAttribute.**
-If you specify the appropriate flag, the mock objects will be created and configured. 
+For convenience of creation of mock objects **MockSettingsAttribute** was added.
+If you specify the appropriate flag the mock objects will be created and configured. 
 
 >For example, if you specify the *DBEngine* flag, the *DBEngine*, *DBExecutor*, *DBTypeConverter*, *DBSecurityEngine*, and a number of other objects will be created, which will intercept requests at the DBEngine level.
 
@@ -142,7 +142,7 @@ public class MyNewTestCase : BaseConfigurationTestFixture
 ```
 
 ### Filling EntitySchemaManager
-Add to schema manager Activity schema with custom structure, DimensionSchema and ContactSchema from Configyuration assembly.
+Add to schema manager Activity schema with custom structure, DimensionSchema and ContactSchema from Configuration assembly.
 ```csharp
 [TestFixture]
 [MockSettings(RequireMock.DBEngine | RequireMock.ResourceStorage)]
